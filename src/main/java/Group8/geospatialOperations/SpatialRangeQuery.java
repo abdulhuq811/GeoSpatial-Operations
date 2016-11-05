@@ -34,11 +34,11 @@ public class SpatialRangeQuery implements Serializable {
 		JavaRDD<Point2> parsePoints = null;
 		JavaRDD<Point2> initial = null;
 	
-		conf = new SparkConf().setAppName("Group8-SpatialRangeQuery");
+		conf = new SparkConf().setAppName("Group8-SpatialRangeQuery").setMaster("local");
 		
 		sc = new JavaSparkContext(conf);
-		JavaRDD<String> distData = sc.textFile(args[0]);
-		JavaRDD<String> queryData = sc.textFile(args[1]);
+		JavaRDD<String> distData = sc.textFile("arealm.csv");
+		JavaRDD<String> queryData = sc.textFile("rectangle.csv");
 		String query = queryData.first();
 						
 		final double windowxmax, windowxmin, windowymax, windowymin;
@@ -132,7 +132,7 @@ public class SpatialRangeQuery implements Serializable {
 				return new String(s.toString());
 			}
 		});		
-    	resultString.saveAsTextFile(args[2]);
+    	resultString.saveAsTextFile("rangeoutput");
         sc.close();        
 	}
 }
