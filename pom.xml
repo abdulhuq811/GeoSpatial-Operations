@@ -27,14 +27,5 @@
     	<artifactId>spark-core_2.10</artifactId>
     	<version>1.5.0</version>
     </dependency>
-
-    <!-- https://mvnrepository.com/artifact/com.vividsolutions/jts -->
-    <dependency>
-      <groupId>com.vividsolutions</groupId>
-      <artifactId>jts</artifactId>
-      <version>1.13</version>
-    </dependency>
-
-
   </dependencies>
 </project>
